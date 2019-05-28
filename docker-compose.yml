@@ -1,0 +1,21 @@
+version: '3.4'
+services:
+    crawler_app:
+        build: ./crawler_app
+        container_name: "crawler_app"
+        volumes:
+            - ./crawler_app:/app
+        depends_on:
+            - mongodb
+
+    mongodb:
+        image: mongo:latest
+        container_name: "mongodb"
+        environment:
+          - MONGO_DATA_DIR=/data/db
+          - MONGO_LOG_DIR=/dev/null
+        volumes:
+          - ./mongo_data/db:/data/db
+        ports:
+            - 27017:27017
+        command: mongod --smallfiles --logpath=/dev/null # --quiet
