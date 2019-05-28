@@ -9,3 +9,6 @@ git push -u origin master
  docker build -t ct .
 
  docker run ct
+
+
+ docker exec -ti crawler_app "/bin/bash"
