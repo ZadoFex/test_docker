@@ -8,7 +8,7 @@ services:
         volumes:
             - ./app_react:/usr/src/app
         depends_on:
-            - mongodb
+            - api_blog
 
     api_blog:
         build: ./api_blog
