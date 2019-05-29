@@ -1,1 +1,3 @@
 mongo_data/db
+.vscode
+node_modules

@@ -1,12 +1,22 @@
 version: '3.4'
 services:
+    client:
+        build: ./crawler_client
+        container_name: "crawler_client"
+        ports:
+            - 8080:8080
+        volumes:
+            - ./crawler_client:/usr/src/app
+        depends_on:
+            - mongodb
+
     crawler_app:
         build: ./crawler_app
         container_name: "crawler_app"
         ports:
             - 65432:65432
         volumes:
-            - ./crawler_app:/app
+            - ./crawler_app:/usr/src/app
         depends_on:
             - mongodb
             
