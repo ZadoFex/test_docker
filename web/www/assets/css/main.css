@@ -1,0 +1,30 @@
+* {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+}
+
+body {
+    background: #F4F5F7;
+    padding: 0 20px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+    font-size:40px;
+}
+
+
+body, #images, #images a {
+    font-family: 'Montserrat' !important;
+ }
+
+
+
+.w100 {
+    font-weight: 100;
+}
+.w200 {
+    font-weight: 200;
+}
+.w300 {
+    font-weight: 300;
+}
+.w400 {
+    font-weight: 400;
+}
