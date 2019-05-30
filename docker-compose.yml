@@ -1,5 +1,6 @@
 version: '3.4'
 services:
+<<<<<<< HEAD
     app_react:
         build: ./app_react
         container_name: "app_react"
@@ -9,14 +10,35 @@ services:
             - ./app_react:/usr/src/app
         depends_on:
             - api_blog
+=======
+    # app_react:
+    #     build: ./app_react
+    #     container_name: "app_react"
+    #     ports:
+    #         - 3000:3000
+    #     volumes:
+    #         - ./app_react:/usr/src/app
+    #     depends_on:
+    #         - mongodb
 
-    api_blog:
-        build: ./api_blog
-        container_name: "api_blog"
+    # api_blog:
+    #     build: ./api_blog
+    #     container_name: "api_blog"
+    #     ports:
+    #         - 8585:8585
+    #     volumes:
+    #         - ./api_blog:/usr/src/app
+    #     depends_on:
+    #         - mongodb
+>>>>>>> addAlieni
+
+    web:
+        build: ./web
+        container_name: "web"
         ports:
-            - 8585:8585
+            - 80:80
         volumes:
-            - ./api_blog:/usr/src/app
+            - ./web/www:/var/www/html
         depends_on:
             - mongodb
 

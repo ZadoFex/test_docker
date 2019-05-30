@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
+
+
+import pymongo
 from scrapy.conf import settings
 from scrapy.exceptions import DropItem
 from scrapy import log
-import pymongo
 
 
-class TutorialPipeline(object):
-    
+class AlieniPipeline(object):
     def __init__(self):
         connection = pymongo.MongoClient(
             settings['MONGODB_SERVER'],
@@ -16,8 +17,10 @@ class TutorialPipeline(object):
         db = connection[settings['MONGODB_DB']]
         self.collection = db[settings['MONGODB_COLLECTION']]
 
+    
 
     def process_item(self, item, spider):
+        #print('Item----------------------->')
         valid = True
         for data in item:
             if not data:
@@ -25,7 +28,7 @@ class TutorialPipeline(object):
                 raise DropItem("Missing {0}!".format(data))
         if valid:
             self.collection.insert(dict(item))
+
             log.msg("Question added to MongoDB database!",
                     level=log.DEBUG, spider=spider)
         return item
-
